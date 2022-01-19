@@ -1,0 +1,22 @@
+/* BY SUBMITTING THIS FILE TO CARMEN, I CERTIFY THAT I STRICTLY ADHERED TO THE
+ *  *  * TENURES OF THE OHIO STATE UNIVERSITYâ€™S ACADEMIC INTEGRITY POLICY
+ *   WITH RESPECT TO THIS ASSIGNMENT*    *  */
+
+#include "lab4.h"
+/* case for when the ndoe to delete is the first in the list*/
+int firstInList(Node *traversePtr, Node **list_head){
+Node* tempPtr;
+int b = 0; 
+if(traversePtr->next != NULL){ /* is the list only 1 item long? */
+                /* if not, delete and update next*/
+		tempPtr = traversePtr->next;
+                *list_head = tempPtr;
+                free(traversePtr);
+                b=1;
+        }else{ /* otherwise just delete*/
+                *list_head = NULL;
+                free(traversePtr);
+                b=1;
+        }
+return b;
+}
